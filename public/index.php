@@ -1,10 +1,9 @@
 <?php
 require_once '../app/config.php';
 require_once '../app/Database.php';
-require_once '../models/Product.php';
+require_once '../models/ShoppingListModel.php';
+require_once '../controllers/ShoppingListController.php';
 
-$productModel = new Product();
-$products = $productModel->getAll();
-
-include '../views/index.php';
+$shoppingListController = new ShoppingListController();
+$shoppingListController->index();
 ?>

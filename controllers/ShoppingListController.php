@@ -11,8 +11,6 @@ class ShoppingListController {
 
                 $shoppingListModel->addItem($name, $image);
 
-                // Redirect to avoid form resubmission on page refresh
-                header("Location: /shopping-list");
                 exit();
             } elseif (isset($_POST['update'])) {
                 // Handle update item form submission
