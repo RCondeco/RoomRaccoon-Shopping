@@ -7,10 +7,13 @@ class ShoppingListController {
             if (isset($_POST['add'])) {
                 // Handle add item form submission
                 $name = $_POST['item'];
+                $price = $_POST['price'];
                 $image = $_FILES['image'];
 
-                $shoppingListModel->addItem($name, $image);
+                $shoppingListModel->addItem($name, $price, $image);
 
+                // Redirect to avoid form resubmission on page refresh
+                header("Location: /shopping-list");
                 exit();
             } elseif (isset($_POST['update'])) {
                 // Handle update item form submission

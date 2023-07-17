@@ -3,7 +3,7 @@ class ShoppingListModel {
     public function getAllItems() {
         $db = Database::connect();
 
-        $query = "SELECT * FROM shopping_list";
+        $query = "SELECT * FROM products";
         $stmt = $db->prepare($query);
         $stmt->execute();
         $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -11,13 +11,14 @@ class ShoppingListModel {
         return $items;
     }
 
-    public function addItem($name, $image) {
+    public function addItem($name, $price, $image) {
         $db = Database::connect();
 
         // Insert the item into the database
-        $query = "INSERT INTO shopping_list (name, image) VALUES (:name, :image)";
+        $query = "INSERT INTO produtcs (name, price, image) VALUES (:name, :price, :image)";
         $stmt = $db->prepare($query);
         $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':price', $price);
         $stmt->bindParam(':image', $image);
         $stmt->execute();
 
@@ -27,5 +28,4 @@ class ShoppingListModel {
         move_uploaded_file($image['tmp_name'], $targetFile);
     }
 }
-?>
 ?>

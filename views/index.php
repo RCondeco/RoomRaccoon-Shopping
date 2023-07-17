@@ -11,8 +11,9 @@
 <body>
     <div class="container mx-auto p-4">
         <h1 class="text-2xl mb-4">Shopping List</h1>
-        <form action="" method="post" enctype="multipart/form-data" class="mb-4">
+        <form action="" method="post" class="mb-4">
             <input type="text" name="item" placeholder="Enter item" class="border p-2 mr-2">
+            <input type="number" name="price" placeholder="Enter price" class="border p-2 mr-2">
             <input type="file" name="image" class="mr-2">
             <button type="submit" name="add"
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
@@ -22,9 +23,13 @@
         <ul>
             <?php foreach ($items as $item) : ?>
             <li class="flex items-center mb-2">
-                <input type="checkbox" name="check_item[]" value="<?php echo $item['id']; ?>"
-                    <?php echo $item['checked'] ? 'checked' : ''; ?> class="mr-2">
+                <?php if ($item['image']) : ?>
+                <img style="height:50px" src="../assets/<?php echo $item['image']; ?>"
+                    alt="<?php echo $item['name']; ?>">
+                <?php endif; ?>
                 <input type="text" name="edit_item[]" value="<?php echo $item['name']; ?>" class="border p-2 flex-grow">
+                <label>Price</label><input type="number" name="edit_price[]" value="<?php echo $item['price']; ?>"
+                    class="border p-2">€
                 <button type="submit" name="update" value="<?php echo $item['id']; ?>"
                     class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ml-2">
                     Edit
