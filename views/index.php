@@ -11,7 +11,7 @@
 
 <body body class="bg-gray-50 dark:bg-gray-900">
     <div class="container mx-auto p-4">
-        <h1 class="text-2xl mb-4">Shopping List</h1>
+        <h1 class="text-2xl mb-4 text-white">Shopping List</h1>
         <form action="" method="post" class="mb-4">
             <input type="text" name="item" placeholder="Enter item" class="border p-2 mr-2">
             <input type="number" name="price" placeholder="Enter price" class="border p-2 mr-2">
@@ -29,8 +29,8 @@
                     alt="<?php echo $item['name']; ?>">
                 <?php endif; ?>
                 <input type="text" name="edit_item[]" value="<?php echo $item['name']; ?>" class="border p-2 flex-grow">
-                <label>Price</label><input type="number" name="edit_price[]" value="<?php echo $item['price']; ?>"
-                    class="border p-2">€
+                <label class="text-white">Price</label><input type="number" name="edit_price[]"
+                    value="<?php echo $item['price']; ?>" class="border p-2">€
                 <button type="submit" name="update" value="<?php echo $item['id']; ?>"
                     class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ml-2">
                     Edit
