@@ -15,7 +15,7 @@ class ShoppingListModel {
         $db = Database::connect();
 
         // Insert the item into the database
-        $query = "INSERT INTO produtcs (name, price, image) VALUES (:name, :price, :image)";
+        $query = "INSERT INTO products (name, price, image) VALUES (:name, :price, :image)";
         $stmt = $db->prepare($query);
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':price', $price);
