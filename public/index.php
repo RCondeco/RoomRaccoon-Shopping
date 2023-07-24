@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once '../app/config.php';
 require_once '../app/Database.php';
 require_once '../models/ShoppingListModel.php';
