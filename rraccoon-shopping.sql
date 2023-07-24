@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 17-Jul-2023 às 18:07
--- Versão do servidor: 10.4.28-MariaDB
--- versão do PHP: 8.2.4
+-- Host: sql107.infinityfree.com
+-- Tempo de geração: 24-Jul-2023 às 10:35
+-- Versão do servidor: 10.4.17-MariaDB
+-- versão do PHP: 7.2.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `rraccoon-shopping`
+-- Banco de dados: `if0_34632976_rraccoon`
 --
 
 -- --------------------------------------------------------
@@ -31,15 +32,17 @@ CREATE TABLE `products` (
   `id` int(20) NOT NULL,
   `name` varchar(50) DEFAULT NULL,
   `price` varchar(10) DEFAULT NULL,
-  `image` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `amount` int(5) NOT NULL DEFAULT 1,
+  `checked` tinyint(1) NOT NULL DEFAULT 0,
+  `uID` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `price`, `image`) VALUES
-(1, 'Shirt', '10', 'shirt.png');
+INSERT INTO `products` (`id`, `name`, `price`, `amount`, `checked`, `uID`) VALUES
+(5, 'was', '2', 1, 0, '75180547baacac2e241bc82aaaf69615e225a9f0');
 
 --
 -- Índices para tabelas despejadas
@@ -59,7 +62,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT de tabela `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
